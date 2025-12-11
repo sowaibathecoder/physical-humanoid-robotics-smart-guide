@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Deployment script for Physical AI & Humanoid Robotics Course
+# This script builds and deploys the Docusaurus site to GitHub Pages
+
+set -e # Exit with nonzero exit code if anything fails
+
+SOURCE_BRANCH="main"
+TARGET_BRANCH="gh-pages"
+
+# Pull requests and commits to other branches shouldn't try to deploy
+if [ "$GITHUB_REF" != "refs/heads/$SOURCE_BRANCH" ]; then
+    echo "Skipping deploy; just doing a build."
+    npm run build
+    exit 0
+fi
+
+# Save some useful information
+REPO=`git config remote.origin.url`
+SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
+SHA=`git rev-parse --verify HEAD`
+
+# Clone the existing gh-pages for this repo into out/
+# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deploy)
+git clone $REPO out
+cd out
+git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+cd ..
+
+# Clean out existing contents except .git
+rm -rf out/**/*
+rm -rf out/.[^.]* 2>/dev/null || true  # Remove hidden files except .git
+
+# Run the publish script to build the site
+npm run build
+
+# Copy the build output to the deployment directory
+cp -r build/* out/
+
+cd out
+# If there are no changes to the compiled out (e.g. this is a README update) then just bail.
+if git diff --quiet; then
+    echo "No changes to the compiled site, exiting."
+    exit 0
+fi
+
+# Commit the "changes", i.e. the new version.
+# The delta will show diffs between new and old versions.
+git add -A .
+git config user.name "GitHub Actions Bot"
+git config user.email "actions@github.com"
+git commit -m "Deploy to GitHub Pages: ${SHA}"
+
+# Get the deploy key by using the encrypted environment variable
+# This needs to be set up in the GitHub repository settings
+if [ -n "$DEPLOY_KEY" ]; then
+    echo "$DEPLOY_KEY" > deploy_key
+    chmod 600 deploy_key
+    eval `ssh-agent -s`
+    ssh-add deploy_key
+    git push $SSH_REPO $TARGET_BRANCH
+else
+    echo "No deploy key found. Skipping push."
+fi
+
+echo "Deploy completed."

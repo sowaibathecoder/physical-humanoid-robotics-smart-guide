@@ -1,55 +1,72 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A (initial version) → 1.0.0
+Modified principles: None (new constitution)
+Added sections: Project Overview, Core Principles (5), Key Standards, Constraints, Success Criteria
+Removed sections: Template placeholders
+Templates requiring updates: ✅ Updated
+Follow-up TODOs: None
+-->
+# Physical AI & Humanoid Robotics Smart Guide Constitution
+
+## Project Overview
+**Book Title**: Mastering Physical AI & Humanoid Robotics
+**Delivery Platform**: Docusaurus website deployed via GitHub Pages
+**Tooling**: Spec-Kit Plus + Claude Code
+**Final Output**: A living, open-source, continuously updated online book (not a static PDF)
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### Technical Accuracy and Research-Based Content
+Technical accuracy grounded in the latest research, real-world implementations, and primary sources (arXiv preprints, conference papers, official company releases, patents, open-source repositories, and verified technical blogs from practitioners).
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### Engineering-First Mindset
+Engineering-first mindset: prioritize how things actually work over hype or marketing narratives.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### Clarity and Accessibility
+Clarity and accessibility for readers with a computer science/engineering background while remaining approachable to motivated learners.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### Future-Proof and Updatable Content
+Future-proof and updatable: the book must be structured so new developments (e.g., new models, hardware releases, benchmarks) can be added seamlessly without breaking existing content.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### Radical Transparency
+Radical transparency: every major claim must be traceable; code snippets, math, and experiments should be reproducible where possible.
 
-### [PRINCIPLE_6_NAME]
+## Key Standards
 
+Citation style: IEEE numeric style with clickable links (preferred for technical web books); include DOI or direct URL whenever available.
+Source priority order:
+  1. Peer-reviewed papers (ICRA, IROS, RSS, CoRL, NeurIPS, Science Robotics, etc.)
+  2. Official technical reports/blogs from leading labs and companies (Tesla AI, Figure, Boston Dynamics, Google DeepMind, OpenAI, Anthropic, Agility Robotics, 1X, Apptronik, etc.)
+  3. Patents and patent applications
+  4. Verified GitHub repositories and open-source codebases
+  5. High-signal technical YouTube breakdowns or conference talks by primary researchers
+Minimum 70% of cited sources must be from categories 1–3 above.
+Every chapter must include a "Recent Developments" or "Timeline" section that can be updated quarterly.
+Code snippets (Python, ROS2, MuJoCo, PyTorch, etc.) must be tested and functional where feasible.
+Math and equations rendered correctly using markdown + LaTeX (KaTeX).
+Writing clarity target: Flesch-Kincaid Grade Level 11–14 (advanced undergraduate to early graduate).
 
-[PRINCIPLE__DESCRIPTION]
+## Constraints
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+Written and maintained exclusively using Spec-Kit Plus workflow (specs → constitution → outline → chapters).
+All content lives in markdown files under `/docs/` in the Docusaurus structure.
+Images/diagrams: either generated via Spec-Kit Plus prompts or sourced with clear licensing (prefer CC0 or explicitly allowed).
+No paywalled content without providing an open-access alternative or archived link.
+Maximum staleness: any chapter older than 9 months without updates must be flagged with a visible banner.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Success Criteria
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Book successfully builds and deploys via GitHub Pages with zero errors.
+At least 12 core chapters completed (see outline below for reference).
+Every factual claim about performance, architecture, or timelines has a working hyperlink to its source.
+Zero plagiarism (checked via Copyleaks/GitGuardian or equivalent before merge).
+At least 150 total citations across the book at launch, with >100 being peer-reviewed or primary sources.
+Site achieves Lighthouse scores: Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95.
+Community contribution guide exists and at least one external PR merged within 60 days of launch.
+Quarterly update cadence established and first post-launch update completed on schedule.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution serves as the immutable north star for the entire book project. Any deviation requires explicit amendment to this document and approval via pull request.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-10

@@ -1,0 +1,284 @@
+# API Reference
+
+This document provides reference information for the Physical AI & Humanoid Robotics course APIs.
+
+## Course Content API
+
+### Get Module Information
+```
+GET /api/modules/{moduleId}
+```
+
+**Description**: Retrieve detailed information about a specific course module.
+
+**Path Parameters**:
+- `moduleId` (string): Unique identifier for the module (e.g., "module-1-the-robotic-nervous-system")
+
+**Response**:
+```json
+{
+  "moduleId": "module-1-the-robotic-nervous-system",
+  "title": "The Robotic Nervous System (ROS 2)",
+  "weeks": 5,
+  "description": "Master the industry-standard middleware that connects everything.",
+  "learningObjectives": [
+    "Understand ROS 2 architecture and concepts",
+    "Create and manage ROS 2 nodes, topics, services, and actions",
+    "Work with URDF/Xacro for humanoid description",
+    "Build reusable ROS 2 workspaces"
+  ],
+  "prerequisites": [],
+  "estimatedDuration": "5 weeks",
+  "weeks": [
+    {
+      "weekId": "week-1-foundations-of-physical-ai",
+      "weekNumber": 1,
+      "title": "Foundations of Physical AI & ROS 2 concepts",
+      "estimatedDuration": "1 week"
+    }
+  ]
+}
+```
+
+### Get Week Content
+```
+GET /api/weeks/{weekId}
+```
+
+**Description**: Retrieve content for a specific week including theory, labs, and assessments.
+
+**Path Parameters**:
+- `weekId` (string): Unique identifier for the week (e.g., "week-1-foundations-of-physical-ai")
+
+**Response**:
+```json
+{
+  "weekId": "week-1-foundations-of-physical-ai",
+  "moduleId": "module-1-the-robotic-nervous-system",
+  "weekNumber": 1,
+  "title": "Foundations of Physical AI & ROS 2 concepts",
+  "learningObjectives": [
+    "Define Physical AI and its applications",
+    "Explain ROS 2 fundamental concepts",
+    "Identify key components of a ROS 2 system"
+  ],
+  "theoryContent": {
+    "url": "/docs/module-1-the-robotic-nervous-system/week-1-foundations-of-physical-ai.md",
+    "summary": "Introduction to Physical AI and ROS 2 concepts"
+  },
+  "labExercises": [
+    {
+      "labId": "lab-1-1-ros2-basics",
+      "title": "ROS 2 Installation and Basic Commands",
+      "description": "Install ROS 2 Humble and run basic commands",
+      "difficultyLevel": "Beginner",
+      "estimatedDuration": "2 hours",
+      "templateRepo": "https://github.com/your-org/physical-ai-labs/module-1/week-1-template",
+      "successCriteria": [
+        "Successfully install ROS 2 Humble",
+        "Run basic ROS 2 commands",
+        "Create a simple publisher/subscriber"
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "assessmentId": "assessment-1-1-concepts",
+      "type": "quiz",
+      "title": "ROS 2 Concepts Quiz",
+      "passingScore": 70,
+      "questionsCount": 10
+    }
+  ],
+  "resources": [
+    {
+      "resourceId": "resource-1-1-ros2-tutorial",
+      "title": "Official ROS 2 Tutorials",
+      "url": "https://docs.ros.org/en/humble/Tutorials.html",
+      "type": "Tutorial",
+      "estimatedTime": "30 minutes"
+    }
+  ]
+}
+```
+
+## Student Progress API
+
+### Get Student Progress
+```
+GET /api/students/{studentId}/progress
+```
+
+**Description**: Retrieve the progress status for a specific student across all modules and weeks.
+
+**Path Parameters**:
+- `studentId` (string): Unique identifier for the student
+
+**Response**:
+```json
+{
+  "studentId": "student-12345",
+  "overallProgress": 15.5,
+  "modules": [
+    {
+      "moduleId": "module-1-the-robotic-nervous-system",
+      "title": "The Robotic Nervous System (ROS 2)",
+      "progress": 30.0,
+      "weeks": [
+        {
+          "weekId": "week-1-foundations-of-physical-ai",
+          "weekNumber": 1,
+          "title": "Foundations of Physical AI & ROS 2 concepts",
+          "status": "completed",
+          "completedDate": "2025-01-15T10:30:00Z",
+          "labProgress": [
+            {
+              "labId": "lab-1-1-ros2-basics",
+              "status": "completed",
+              "completedDate": "2025-01-14T15:45:00Z"
+            }
+          ],
+          "assessmentScore": 85
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Update Lab Completion Status
+```
+POST /api/students/{studentId}/labs/{labId}/completion
+```
+
+**Description**: Update the completion status of a lab exercise for a student.
+
+**Path Parameters**:
+- `studentId` (string): Unique identifier for the student
+- `labId` (string): Unique identifier for the lab
+
+**Request Body**:
+```json
+{
+  "status": "completed",
+  "completionDate": "2025-01-14T15:45:00Z",
+  "notes": "Successfully completed all steps in the lab"
+}
+```
+
+**Response**:
+```json
+{
+  "success": true,
+  "message": "Lab completion status updated successfully",
+  "updatedProgress": {
+    "labId": "lab-1-1-ros2-basics",
+    "status": "completed",
+    "completionDate": "2025-01-14T15:45:00Z"
+  }
+}
+```
+
+## Lab Execution API
+
+### Get Lab Template
+```
+GET /api/labs/{labId}/template
+```
+
+**Description**: Retrieve the template files for a specific lab exercise.
+
+**Path Parameters**:
+- `labId` (string): Unique identifier for the lab
+
+**Response**:
+```
+Status: 200 OK
+Content-Type: application/zip
+Content-Disposition: attachment; filename="lab-1-1-ros2-basics-template.zip"
+
+[ZIP file containing lab template files]
+```
+
+### Validate Lab Submission
+```
+POST /api/labs/{labId}/validate
+```
+
+**Description**: Validate a student's lab submission against success criteria.
+
+**Path Parameters**:
+- `labId` (string): Unique identifier for the lab
+
+**Request Body**:
+```json
+{
+  "studentId": "student-12345",
+  "submission": {
+    "files": [
+      {
+        "name": "publisher_subscriber.py",
+        "content": "import rclpy\nfrom rclpy.node import Node..."
+      }
+    ],
+    "executionOutput": "Node started successfully...",
+    "testResults": [
+      {
+        "testName": "publisher_test",
+        "passed": true,
+        "details": "Publisher node published messages successfully"
+      }
+    ]
+  }
+}
+```
+
+**Response**:
+```json
+{
+  "isValid": true,
+  "passedTests": 3,
+  "totalTests": 3,
+  "successCriteriaMet": true,
+  "feedback": "All tests passed. Lab completed successfully."
+}
+```
+
+## Content Management API
+
+### Search Citations
+```
+GET /api/citations
+```
+
+**Description**: Search for citations used in the course content.
+
+**Query Parameters**:
+- `query` (string, optional): Search term
+- `type` (string, optional): Filter by citation type (paper, article, blog, code, video)
+- `sourcePriority` (number, optional): Filter by source priority (1-5)
+- `limit` (number, default: 20): Maximum number of results
+- `offset` (number, default: 0): Number of results to skip
+
+**Response**:
+```json
+{
+  "results": [
+    {
+      "citationId": "citation-1",
+      "title": "A Generalist Robot Learning Model for Manipulation and Navigation",
+      "type": "paper",
+      "authors": ["Karol Hausman", "Jingyu Xin", "Kanishka Rao"],
+      "publication": "IEEE Transactions on Robotics",
+      "publicationDate": "2024-06-15",
+      "url": "https://doi.org/10.1109/TRO.2024.1234567",
+      "doi": "10.1109/TRO.2024.1234567",
+      "sourcePriority": 1,
+      "verificationStatus": "verified"
+    }
+  ],
+  "total": 120,
+  "limit": 20,
+  "offset": 0
+}
+```

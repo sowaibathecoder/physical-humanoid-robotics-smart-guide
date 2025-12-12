@@ -1,60 +1,315 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * Futuristic, High-Tech Docusaurus Theme for Physical AI & Humanoid Robotics Course
  */
 
-/* You can override the default Docusaurus styling with custom CSS here */
+/* Futuristic color palette */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #00ffff; /* neon blue */
+  --ifm-color-primary-dark: #00cccc; /* darker neon blue */
+  --ifm-color-primary-darker: #009999; /* even darker neon blue */
+  --ifm-color-primary-darkest: #006666; /* darkest neon blue */
+  --ifm-color-primary-light: #33ffff; /* lighter neon blue */
+  --ifm-color-primary-lighter: #66ffff; /* even lighter neon blue */
+  --ifm-color-primary-lightest: #ccffff; /* lightest neon blue */
   --ifm-code-font-size: 95%;
+
+  /* Additional futuristic colors */
+  --neon-blue: #00ffff;
+  --electric-cyan: #0088ff;
+  --metallic-silver: #c0c0c0;
+  --metallic-silver-light: #e8e8e8;
+  --metallic-silver-dark: #a0a0a0;
+  --deep-black: #000000;
+  --dark-bg: #0a0a0a;
+  --darker-bg: #1a1a1a;
+  --accent-primary: #00ffff;
+  --accent-secondary: #0088ff;
+  --text-primary: #e8e8e8;
+  --text-secondary: #c0c0c0;
+  --card-bg: rgba(192, 192, 192, 0.05);
+  --card-border: rgba(0, 255, 255, 0.2);
+  --glow-effect: 0 0 15px rgba(0, 255, 255, 0.5);
+  --glow-effect-soft: 0 0 8px rgba(0, 136, 255, 0.3);
+}
+
+/* Dark theme enhancements */
+html[data-theme='dark'] {
+  --ifm-background-color: var(--deep-black);
+  --ifm-background-surface-color: var(--darker-bg);
+  --ifm-color-content: var(--text-primary);
+  --ifm-color-content-secondary: var(--text-secondary);
+  --ifm-navbar-background-color: var(--dark-bg);
+  --ifm-footer-background-color: var(--darker-bg);
+  --ifm-card-background-color: var(--card-bg);
+  --ifm-card-border-color: var(--card-border);
+}
+
+/* Global styles */
+body {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-black) 100%) !important;
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar enhancements */
+.navbar {
+  background: rgba(10, 10, 10, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__title {
+  background: linear-gradient(45deg, var(--neon-blue), var(--electric-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.navbar__link:hover {
+  color: var(--accent-primary) !important;
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* Footer enhancements */
+.footer {
+  background: linear-gradient(135deg, var(--darker-bg) 0%, var(--deep-black) 100%) !important;
+  color: var(--text-primary);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.footer__title {
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Card enhancements */
+.card {
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease !important;
+  box-shadow: var(--glow-effect-soft) !important;
+}
+
+.card:hover {
+  transform: translateY(-5px) !important;
+  border-color: var(--accent-primary) !important;
+  box-shadow: var(--glow-effect) !important;
+}
+
+/* Code block enhancements */
+.code-block {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 10px !important;
+  margin: 1rem 0 !important;
 }
 
 .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 255, 255, 0.15);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
 }
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+/* Button enhancements */
+.button {
+  border-radius: 50px !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid transparent !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+.button--primary {
+  background: linear-gradient(45deg, var(--neon-blue), var(--electric-cyan)) !important;
+  color: white !important;
+}
+
+.button--primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4) !important;
+  background: linear-gradient(45deg, #00e6e6, #0099ff) !important;
+}
+
+.button--secondary {
+  background: transparent !important;
+  color: var(--accent-primary) !important;
+  border: 2px solid var(--accent-primary) !important;
+}
+
+.button--secondary:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2) !important;
+}
+
+/* Sidebar enhancements */
+.menu {
+  background: rgba(192, 192, 192, 0.05) !important;
+  border-right: 1px solid var(--card-border) !important;
+  backdrop-filter: blur(5px);
+}
+
+.menu__link {
+  color: var(--text-secondary) !important;
+  border-radius: 8px !important;
+  margin: 2px 0 !important;
+  transition: all 0.3s ease !important;
+}
+
+.menu__link:hover {
+  background: rgba(0, 255, 255, 0.1) !important;
+  color: var(--accent-primary) !important;
+}
+
+.menu__link--active {
+  background: rgba(0, 255, 255, 0.2) !important;
+  color: var(--accent-primary) !important;
+  border-left: 3px solid var(--accent-primary) !important;
+}
+
+/* Doc enhancements */
+.docItemContainer {
+  max-width: 100% !important;
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  background: linear-gradient(45deg, var(--neon-blue), var(--electric-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Table enhancements */
+.table {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead tr {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.table th, .table td {
+  border: 1px solid var(--card-border);
 }
 
 /* Custom styles for robotics course */
 .robotics-module {
-  border: 1px solid var(--ifm-color-primary);
-  border-radius: 8px;
-  padding: 1rem;
-  margin: 1rem 0;
+  border: 1px solid var(--accent-primary);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--card-bg);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glow-effect-soft);
+  transition: all 0.3s ease;
+}
+
+.robotics-module:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-effect);
 }
 
 .robotics-week {
-  background-color: #f8f9fa;
-  padding: 1rem;
-  margin: 0.5rem 0;
-  border-left: 4px solid var(--ifm-color-primary);
+  background: rgba(0, 255, 255, 0.1);
+  padding: 1.2rem;
+  margin: 0.7rem 0;
+  border-left: 4px solid var(--accent-primary);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
 }
 
-html[data-theme='dark'] .robotics-week {
-  background-color: #2a2a2a;
+.robotics-week:hover {
+  background: rgba(0, 255, 255, 0.15);
+  transform: translateX(5px);
 }
 
 .lab-exercise {
-  border: 1px solid #e9ecef;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
-  background-color: #fff9db;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin: 1.2rem 0;
+  background: rgba(192, 192, 192, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--glow-effect-soft);
+  transition: all 0.3s ease;
 }
 
-html[data-theme='dark'] .lab-exercise {
-  background-color: #3a3a12;
+.lab-exercise:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--glow-effect);
+}
+
+/* Animation for interactive elements */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(0, 255, 255, 0.3); }
+}
+
+/* Apply animations to key elements */
+.navbar__logo {
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero__title {
+  animation: glow 4s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(192, 192, 192, 0.05);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--neon-blue), var(--electric-cyan));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00e6e6, #0099ff);
 }

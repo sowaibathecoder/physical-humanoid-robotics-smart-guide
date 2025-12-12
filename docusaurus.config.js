@@ -6,9 +6,9 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Physical AI & Humanoid Robotics Course',
-  tagline: 'Mastering Physical AI & Humanoid Robotics – 13-Week Hands-On Capstone Course',
-  favicon: 'img/favicon.ico',
+  title: 'Mastering Physical AI & Humanoid Robotics',
+  tagline: 'The definitive guide to building intelligent humanoid robots with cutting-edge AI technology',
+  favicon: 'img/favicon.svg',
 
   // Set the production url of your site here
   url: 'https://your-org.github.io',
@@ -75,6 +75,7 @@ const config = {
             position: 'right',
           },
         ],
+        style: 'dark',
       },
       footer: {
         style: 'dark',
@@ -120,6 +121,12 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['bash', 'json', 'python', 'docker'],
+      },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: false,
       },
     }),
 };

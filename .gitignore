@@ -148,8 +148,6 @@ install/
 build/
 log/
 *.xml
-*.yaml
-*.yml
 *.cfg
 *.cfg~
 *.launch

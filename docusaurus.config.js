@@ -39,9 +39,8 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // The "edit this page" links have been removed
+          remarkPlugins: [require('mdx-mermaid')],
         },
         blog: false, // Optional: disable the blog plugin
         theme: {
@@ -49,6 +48,45 @@ const config = {
         },
       }),
     ],
+  ],
+
+  plugins: [
+    // Plugin for mathematical expressions
+    async function myPlugin(context, options) {
+      return {
+        name: 'custom-katex',
+        configureWebpack(config, isServer, utils) {
+          return {
+            resolve: {
+              alias: {
+                path: require.resolve('path-browserify'),
+              },
+            },
+          };
+        },
+      };
+    },
+  ],
+
+  themes: [
+    // Add support for Mermaid diagrams
+    [
+      require.resolve('@docusaurus/theme-mermaid'),
+      {
+        options: {
+          maxZoom: 1.5,
+        },
+      },
+    ],
+  ],
+
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css',
+      type: 'text/css',
+      integrity: 'sha384-GvrOXuhMATgEsSwZ9Z2s8S4JZVPPw8P8PkNJqqu4Y8R4QhlXZg5ENLOE0iTV7G',
+      crossorigin: 'anonymous',
+    },
   ],
 
   themeConfig:
@@ -70,7 +108,7 @@ const config = {
             label: 'Course',
           },
           {
-            href: 'https://github.com/your-org/physical-humanoid-robotics-smart-guide',
+            href: 'https://github.com/sowaibathecoder',
             label: 'GitHub',
             position: 'right',
           },
@@ -93,8 +131,8 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/in/sowaiba-naz/',
               },
               {
                 label: 'Discord',
@@ -102,7 +140,7 @@ const config = {
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: 'https://x.com/Sowa_Sheikh_27',
               },
             ],
           },
@@ -111,12 +149,12 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/sowaibathecoder',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Course. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Smart Guide. All rights reserved.`,
       },
       prism: {
         theme: lightCodeTheme,

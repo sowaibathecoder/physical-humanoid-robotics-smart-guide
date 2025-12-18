@@ -28,7 +28,7 @@ tests:
 
 ## Prompt
 
-Use the colors neon blue, electric cyan, metallic silver, and deep black to update the layout of the book. Please redesign the entire book layout, color palette, typography, and overall visual experience so that my book looks more futuristic, modern, visually immersive, eye-catching, high-tech, and professional. And use localhost:3000 to run the server.
+Use the colors neon blue, electric cyan, metallic silver, and deep black to update the layout of the book. Please redesign the entire book layout, color palette, typography, and overall visual experience so that my book looks more futuristic, modern, visually immersive, eye-catching, high-tech, and professional.
 
 ## Response snapshot
 

@@ -11,13 +11,15 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <div className={styles.heroContent}>
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <h1 className={clsx('hero__title', styles.mainTitle)}>
+            Mastering Physical AI &<br />Humanoid Robotics
+          </h1>
+          <p className={clsx('hero__subtitle', styles.mainSubtitle)}>The definitive guide to building intelligent humanoid robots with cutting-edge AI technology</p>
           <div className={styles.buttons}>
             <Link className="button button--secondary button--lg" to="/docs/intro">
               Begin Your Journey
             </Link>
-            <Link className="button button--outline button--lg" to="/docs/module-1-the-robotic-nervous-system/week-1-foundations-of-physical-ai">
+            <Link className="button button--outline button--lg button--outline-special" to="/docs/part-1-foundations-of-physical-ai/weekly-breakdown/week-1/chapter-01-what-is-physical-ai">
               Explore Modules
             </Link>
           </div>
@@ -81,34 +83,24 @@ export default function Home() {
 
   const features = [
     {
-      title: '🤖 Module 1: The Robotic Nervous System',
+      title: '📚 Part 1: Foundations of Physical AI',
+      description: 'Understanding the fundamentals of Physical AI, sensors, perception, and the landscape of humanoid robotics.',
+      icon: '📚'
+    },
+    {
+      title: '🔌 Part 2: The ROS Nervous System (ROS2)',
       description: 'Master ROS 2, the industry-standard middleware that connects everything. Foundation of Physical AI and humanoid robotics.',
+      icon: '🔌'
+    },
+    {
+      title: '🎮 Part 3: Digital Twins & Simulation AI Robot Brain',
+      description: 'Simulation environments with Gazebo, Isaac Sim, and Isaac ROS GEMs. Create intelligent decision-making for autonomous robots.',
+      icon: '🎮'
+    },
+    {
+      title: '🤖 Part 4: VLA Humanoid Systems',
+      description: 'Vision-Language-Action models, voice-to-action pipelines, bipedal locomotion, manipulation, and conversational humanoids.',
       icon: '🤖'
-    },
-    {
-      title: '🌐 Module 2: The Digital Twin',
-      description: 'Simulation environments with Gazebo Ignition and Unity ROS TCP Connector. Create digital replicas of your robots.',
-      icon: '🌐'
-    },
-    {
-      title: '🧠 Module 3: The AI-Robot Brain',
-      description: 'NVIDIA Isaac Sim, Isaac ROS GEMs, and Navigation2 SMAC Planner. Intelligent decision-making for autonomous robots.',
-      icon: '🧠'
-    },
-    {
-      title: '👁️ Module 4: Vision-Language-Action Models',
-      description: 'OpenVLA, RT-2X, Octo, and final capstone project. Advanced AI models that understand and interact with the world.',
-      icon: '👁️'
-    },
-    {
-      title: '⚡ Hardware Integration',
-      description: 'Designed for Jetson Orin Nano, Ubuntu 22.04, and AWS g5/g6 instances. Real-world deployment scenarios.',
-      icon: '⚡'
-    },
-    {
-      title: '🎓 Capstone Project',
-      description: 'Build fully autonomous humanoid robots that accept voice commands, understand intent, plan, navigate, and manipulate objects.',
-      icon: '🎓'
     }
   ];
 
@@ -147,8 +139,8 @@ export default function Home() {
                 <Link className="button button--primary button--lg" to="/docs/intro">
                   Start Learning Now
                 </Link>
-                <Link className="button button--outline button--lg" to="/docs/module-1-the-robotic-nervous-system/week-1-foundations-of-physical-ai">
-                  View Curriculum
+                <Link className="button button--outline button--lg" to="/docs/table-of-content/">
+                  Explore Curriculum
                 </Link>
               </div>
             </div>

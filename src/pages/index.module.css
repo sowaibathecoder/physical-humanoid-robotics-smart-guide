@@ -4,9 +4,13 @@
 .heroBanner {
   padding: 6rem 0;
   text-align: center;
-  position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0c0e1d 0%, #1a1f3a 50%, #0c0e1d 100%);
+  background:
+    radial-gradient(ellipse at center, rgba(12, 14, 29, 0.9) 0%, rgba(26, 31, 58, 0.9) 50%, rgba(12, 14, 29, 0.9) 100%),
+    linear-gradient(135deg, #0c0e1d 0%, #1a1f3a 50%, #0c0e1d 100%);
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed;
   color: white;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -22,9 +26,30 @@
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 10% 20%, rgba(74, 102, 245, 0.1) 0%, transparent 20%),
-    radial-gradient(circle at 90% 80%, rgba(106, 27, 154, 0.1) 0%, transparent 20%);
+    radial-gradient(circle at 10% 20%, rgba(74, 102, 245, 0.15) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(106, 27, 154, 0.15) 0%, transparent 20%),
+    /* Grid pattern */
+    linear-gradient(rgba(74, 102, 245, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 102, 245, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 50px 50px;
+  background-position: -2px -2px;
   pointer-events: none;
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Futuristic grid overlay */
+  background:
+    linear-gradient(rgba(100, 149, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 149, 237, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  opacity: 0.7;
 }
 
 .heroContent {
@@ -42,9 +67,67 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
+  /* text-fill-color: transparent; */
   letter-spacing: -0.5px;
   text-shadow: 0 0 20px rgba(78, 84, 200, 0.3);
+}
+
+.mainTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #4e54c8, #8f94fb, #6a1b9a, #4e54c8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+  text-shadow: 0 0 20px rgba(78, 84, 200, 0.3);
+  position: relative;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 996px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainTitle {
+    font-size: 2rem;
+  }
+}
+
+.mainTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8f94fb, transparent);
+  border-radius: 2px;
+}
+
+.mainSubtitle {
+  font-size: 1.6rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  color: #e0e0ff;
+  line-height: 1.6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 .hero__subtitle {
@@ -92,10 +175,17 @@
   border: 2px solid #8f94fb;
 }
 
-.button--outline:hover {
-  background: rgba(143, 148, 251, 0.1);
+/* Special outline button that matches the secondary button colors */
+.button--outline.button--outline-special {
+  border-color: #4e54c8 !important; /* Primary color from secondary button gradient */
+  color: #4e54c8 !important; /* Primary color from secondary button gradient */
+}
+
+.button--outline.button--outline-special:hover {
+  background: linear-gradient(45deg, #4e54c8, #8f94fb) !important; /* Same as secondary button */
+  color: white !important; /* Same as secondary button text */
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(143, 148, 251, 0.2);
+  box-shadow: 0 8px 25px rgba(78, 84, 200, 0.4);
 }
 
 /* Stats Section */
@@ -162,7 +252,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 .sectionSubtitle {
@@ -250,11 +339,10 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  background: linear-gradient(45deg, #4e54c8, #8f94fb);
+  background: linear-gradient(45deg, #4e54c8, #8f94fb, #6a1b9a, #4e54c8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 
 .ctaSubtitle {
@@ -279,11 +367,11 @@
     padding: 4rem 1rem;
   }
 
-  .hero__title {
-    font-size: 2.5rem;
+  .mainTitle {
+    font-size: 3rem;
   }
 
-  .hero__subtitle {
+  .mainSubtitle, .hero__subtitle {
     font-size: 1.2rem;
   }
 
@@ -328,8 +416,8 @@
     padding: 3rem 1rem;
   }
 
-  .hero__title {
-    font-size: 2rem;
+  .mainTitle {
+    font-size: 2.5rem;
   }
 
   .statsSection {
@@ -346,6 +434,11 @@
   0% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0.4); }
   70% { box-shadow: 0 0 0 10px rgba(78, 84, 200, 0); }
   100% { box-shadow: 0 0 0 0 rgba(78, 84, 200, 0); }
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 20px rgba(78, 84, 200, 0.3); }
+  100% { text-shadow: 0 0 30px rgba(143, 148, 251, 0.6), 0 0 40px rgba(106, 27, 154, 0.4); }
 }
 
 .featureCardInner:hover {

@@ -1,19 +1,61 @@
-<!-- SYNC IMPACT REPORT
-Version change: 1.0.0 → 1.1.0
-Modified principles: Technical Accuracy and Research-Based Content → Engineering Reality Over Abstraction, Clarity and Accessibility → Textbook-Level Depth, Future-Proof and Updatable Content → Physical AI First, Radical Transparency → Systems Thinking, New principle added → Longevity & Evolvability
-Added sections: Non-Negotiable Philosophy (5 principles), Structural Mandates, Source & Citation Standards, Technical Quality Bar, Maintenance & Governance
-Removed sections: Old principles (replaced with new ones from prompt)
-Templates requiring updates: ✅ Updated
-Follow-up TODOs: None
--->
-# Physical AI & Humanoid Robotics Smart Guide Constitution
+---
+id: 2
+title: Update Project Constitution Detailed
+stage: constitution
+date: 2025-12-16
+surface: agent
+model: claude-sonnet-4-5-20250929
+feature: none
+branch: main
+user: user
+command: /sp.constitution
+labels: ["constitution", "governance", "project-setup"]
+links:
+  spec: null
+  ticket: null
+  adr: null
+  pr: null
+files:
+ - .specify/memory/constitution.md
+ - history/prompts/constitution/2-update-project-constitution-detailed.constitution.prompt.md
+tests:
+ - none
+---
 
-## Project Overview
-**Book Title**: Physical AI & Humanoid Robotics – Smart Guide
-**Project Type**: A continuously evolving, open-source, textbook-grade technical book (not a short course, not lecture notes, not a blog series, and not a static PDF)
-**Delivery Platform**: Docusaurus documentation site deployed via GitHub Pages or Vercel, structured for long-term maintenance and community contributions
-**Primary Toolchain**: Spec-Kit Plus (spec-driven authoring, PHR preservation), Claude Code CLI (content generation and implementation), GitHub (version control, review, governance)
-**Final Output Vision**: A canonical reference for Physical AI and Humanoid Robotics that bridges digital AI → Embodied Intelligence, Simulation → Real-world deployment, and Research → Engineering practice
+## Prompt
+
+# Project Constitution: Physical AI & Humanoid Robotics Smart Guide (Textbook-Grade, Spec-Driven Book)
+
+You are defining the immutable constitution for a long-lived, engineering-grade technical book project.
+This document is the highest authority in the project hierarchy and overrides all future specifications,
+plans, tasks, and implementations unless explicitly amended.
+
+────────────────────────────────────────
+PROJECT IDENTITY
+────────────────────────────────────────
+
+Book Title:
+Physical AI & Humanoid Robotics – Smart Guide
+
+Project Type:
+A continuously evolving, open-source, textbook-grade technical book
+(not a short course, not lecture notes, not a blog series, and not a static PDF).
+
+Delivery Platform:
+- Docusaurus documentation site
+- Deployed via GitHub Pages or Vercel
+- Structured for long-term maintenance and community contributions
+
+Primary Toolchain:
+- Spec-Kit Plus (spec-driven authoring, PHR preservation)
+- Claude Code CLI (content generation and implementation)
+- GitHub (version control, review, governance)
+
+Final Output Vision:
+A canonical reference for Physical AI and Humanoid Robotics that bridges:
+- Digital AI → Embodied Intelligence
+- Simulation → Real-world deployment
+- Research → Engineering practice
 
 ────────────────────────────────────────
 NON-NEGOTIABLE PHILOSOPHY
@@ -47,9 +89,21 @@ This book MUST adhere to the following principles at all times:
 STRUCTURAL MANDATES
 ────────────────────────────────────────
 
-- The book is organized as: PARTS (Modules) → Weeks → Chapters → Sections
-- Modules are NOT weeks. Weeks are learning roadmaps only and must never dictate chapter boundaries. Each module represents a coherent conceptual domain, not a time slice.
-- Every chapter MUST include: Conceptual explanation (intuition-first), Humanoid robotics context, System-level architectural perspective, Practical reasoning or design exercises, Common failure modes and debugging insights, Chapter summary, MCQs for assessment, Practice tasks (beginner → advanced)
+- The book is organized as:
+- PARTS (Modules) → Weekly Breakdown → Weeks → Chapters → Sections
+- Modules are NOT weeks.
+- Weeks are learning roadmaps only and must never dictate chapter boundaries.
+- Each module represents a coherent conceptual domain, not a time slice.
+
+Every chapter MUST include:
+- Conceptual explanation (intuition-first)
+- Humanoid robotics context
+- System-level architectural perspective
+- Practical reasoning or design exercises
+- Common failure modes and debugging insights
+- Chapter summary
+- MCQs for assessment
+- Practice tasks (beginner → advanced)
 
 ────────────────────────────────────────
 SOURCE & CITATION STANDARDS
@@ -118,4 +172,40 @@ Any deviation requires:
 
 Acknowledge and adopt this constitution as the immutable north star of the project.
 
-**Version**: 1.1.0 | **Ratified**: 2025-12-10 | **Last Amended**: 2025-12-15
+## Response snapshot
+
+The project constitution at `.specify/memory/constitution.md` has been successfully updated and validated. All required elements from the user-provided constitution have been implemented, including:
+
+1. Non-Negotiable Philosophy with all 5 principles:
+   - Engineering Reality Over Abstraction
+   - Textbook-Level Depth
+   - Physical AI First
+   - Systems Thinking
+   - Longevity & Evolvability
+
+2. Structural Mandates with proper organization hierarchy and chapter requirements
+
+3. Source & Citation Standards with IEEE numeric style and source priority ranking
+
+4. Technical Quality Bar with code standards, ROS 2 practices, and writing clarity targets
+
+5. Maintenance & Governance requirements with update timelines and review processes
+
+6. Success Criteria and Constitutional Authority sections
+
+The constitution file is complete, properly formatted, and adheres to all specified requirements. All structural elements are in place, and the document serves as the immutable governing document for the project as requested.
+
+## Outcome
+
+- ✅ Impact: Project constitution fully updated with all required principles and governance structures
+- 🧪 Tests: Manual verification of all constitution elements completed
+- 📁 Files: .specify/memory/constitution.md and PHR record updated
+- 🔁 Next prompts: Ready for spec development based on this constitution
+- 🧠 Reflection: Constitution provides strong foundation for textbook-grade robotics content with emphasis on practical engineering reality
+
+## Evaluation notes (flywheel)
+
+- Failure modes observed: None - all requirements satisfied
+- Graders run and results (PASS/FAIL): PASS - all constitution elements verified
+- Prompt variant (if applicable): Original constitution prompt
+- Next experiment (smallest change to try): Begin developing first module specification based on constitution

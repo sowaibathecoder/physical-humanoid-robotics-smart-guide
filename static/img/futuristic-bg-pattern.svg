@@ -1,0 +1,26 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="futuristic-grid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#4e54c8" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#4e54c8" flood-opacity="0.2" result="glowColor"/>
+      <feComposite in="glowColor" in2="blur" operator="in" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#0c0e1d"/>
+  <rect width="100%" height="100%" fill="url(#futuristic-grid)"/>
+  <!-- Circuit board pattern -->
+  <g filter="url(#glow)" opacity="0.1">
+    <path d="M 0 150 Q 75 100 150 150 T 300 150" stroke="#8f94fb" stroke-width="1" fill="none"/>
+    <path d="M 150 0 Q 200 75 150 150 T 150 300" stroke="#8f94fb" stroke-width="1" fill="none"/>
+    <circle cx="150" cy="150" r="30" stroke="#4e54c8" stroke-width="1" fill="none"/>
+    <circle cx="150" cy="150" r="60" stroke="#6a1b9a" stroke-width="0.5" fill="none" opacity="0.5"/>
+    <circle cx="150" cy="150" r="90" stroke="#4e54c8" stroke-width="0.5" fill="none" opacity="0.3"/>
+  </g>
+</svg>

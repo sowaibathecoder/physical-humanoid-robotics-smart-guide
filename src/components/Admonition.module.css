@@ -1,0 +1,102 @@
+.admonition {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.admonition .header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.admonition .icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.admonition .title {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+.admonition .content {
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+/* Tip admonition */
+.admonition.tip {
+  border-color: #4caf50;
+  background-color: #f1f8e9;
+}
+
+.admonition.tip .header {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  border-bottom-color: #4caf50;
+}
+
+/* Note admonition */
+.admonition.note {
+  border-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.admonition.note .header {
+  background-color: #e1f5fe;
+  color: #0d47a1;
+  border-bottom-color: #2196f3;
+}
+
+/* Caution admonition */
+.admonition.caution {
+  border-color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.admonition.caution .header {
+  background-color: #ffe0b2;
+  color: #ef6c00;
+  border-bottom-color: #ff9800;
+}
+
+/* Danger admonition */
+.admonition.danger {
+  border-color: #f44336;
+  background-color: #ffebee;
+}
+
+.admonition.danger .header {
+  background-color: #ffcdd2;
+  color: #c62828;
+  border-bottom-color: #f44336;
+}
+
+/* Concept admonition */
+.admonition.concept {
+  border-color: #9c27b0;
+  background-color: #f3e5f5;
+}
+
+.admonition.concept .header {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+  border-bottom-color: #9c27b0;
+}
+
+/* Exercise admonition */
+.admonition.exercise {
+  border-color: #ff5722;
+  background-color: #fbe9e7;
+}
+
+.admonition.exercise .header {
+  background-color: #ffccbc;
+  color: #d84315;
+  border-bottom-color: #ff5722;
+}

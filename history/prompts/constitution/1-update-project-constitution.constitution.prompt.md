@@ -65,7 +65,7 @@ tests:
 
 ## Success Criteria
 
-- Book successfully builds and deploys via GitHub Pages with zero errors.
+- Book successfully builds and deploys via GitHub Pages or Vercel with zero errors.
 - At least 12 core chapters completed (see outline below for reference).
 - Every factual claim about performance, architecture, or timelines has a working hyperlink to its source.
 - Zero plagiarism (checked via Copyleaks/GitGuardian or equivalent before merge).

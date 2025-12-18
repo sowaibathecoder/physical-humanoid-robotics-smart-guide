@@ -45,10 +45,17 @@ html[data-theme='dark'] {
 }
 
 /* Global styles */
+html {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-black) 100%);
+}
+
 body {
-  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-black) 100%) !important;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-black) 100%);
   color: var(--text-primary);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar enhancements */
@@ -64,7 +71,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
@@ -79,22 +85,40 @@ body {
 .footer {
   background: linear-gradient(135deg, var(--darker-bg) 0%, var(--deep-black) 100%) !important;
   color: var(--text-primary);
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  border-top: 1px solid #000000;
+  padding: 2rem 0 1.5rem;
 }
 
 .footer__title {
   color: var(--accent-primary);
   margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .footer__link-item {
   color: var(--text-secondary);
   transition: color 0.3s ease;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 .footer__link-item:hover {
   color: var(--accent-primary);
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.footer__copyright {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid #000000;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.footer__items {
+  margin-bottom: 1.5rem;
 }
 
 /* Card enhancements */
@@ -203,7 +227,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   font-weight: 700;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
 }
@@ -293,6 +316,89 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero__title {
   animation: glow 4s ease-in-out infinite;
+}
+
+/* Mobile sidebar enhancements */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    background: var(--darker-bg) !important;
+    z-index: 1000 !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+  }
+
+  .navbar-sidebar__backdrop {
+    z-index: 999 !important;
+  }
+
+  .menu {
+    background: var(--darker-bg) !important;
+    border-right: none !important;
+    padding: 1rem !important;
+    height: calc(100vh - 60px) !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    margin-top: 60px !important;
+  }
+
+  .menu--responsive {
+    position: relative !important;
+    width: 100% !important;
+    min-width: 250px !important;
+    height: calc(100vh - 60px) !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+  }
+
+  .menu__list {
+    margin: 0 !important;
+  }
+
+  .menu__list-item {
+    margin: 0.25rem 0 !important;
+  }
+
+  .menu__list-item:not(:first-child) {
+    border-top: 1px solid var(--card-border) !important;
+    padding-top: 0.75rem !important;
+  }
+
+  .menu__link {
+    border-radius: 8px !important;
+    margin: 0 !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid transparent !important;
+    color: var(--text-secondary) !important;
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .menu__link:hover {
+    background: rgba(0, 255, 255, 0.1) !important;
+    border-color: var(--card-border) !important;
+    color: var(--accent-primary) !important;
+  }
+
+
+  .menu__list-item-collapsible .menu__link {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .menu__list-item-collapsible .menu__list {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    transition: max-height 0.3s ease !important;
+  }
+
+  .menu__list-item-collapsible--active .menu__list {
+    max-height: 1000px !important;
+  }
 }
 
 /* Scrollbar styling */

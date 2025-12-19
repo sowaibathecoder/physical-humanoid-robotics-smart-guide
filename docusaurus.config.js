@@ -108,7 +108,7 @@ const config = {
             label: 'Course',
           },
           {
-            href: 'https://github.com/sowaibathecoder',
+            href: 'https://github.com/sowaibathecoder/physical-humanoid-robotics-smart-guide_Hackathon',
             label: 'GitHub',
             position: 'right',
           },
@@ -149,7 +149,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/sowaibathecoder',
+                href: 'https://github.com/sowaibathecoder/physical-humanoid-robotics-smart-guide_Hackathon',
               },
             ],
           },
